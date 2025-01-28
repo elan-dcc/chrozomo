@@ -1,0 +1,4 @@
+"leeftijdsgroep","landelijk_ziekenhuiscijfer","regionaal_ziekenhuiscijfer","regionaal_huisartsencijfer"
+"18-39",1,1,1
+"40-69",30,30,20
+">=70",70,70,80
