@@ -31,16 +31,17 @@ index_ui <- function(id) {
     )
 }
 
-index_server <- function(input, output, session) {
-  ns <- session$ns
-  
-  data.elan.map <- jsonlite::read_json("data/elan.json")
-  data.elan <- as.data.frame(load_data("data/elan_classification"))
-  
-  output$map <- renderEcharts4r({
-    data.elan |>
-      e_charts(name) |>
-      e_map_register("ELAN", data.elan.map) |>
-      elan_map(category, map = "ELAN")
+index_server <- function(id) {
+  moduleServer(id, function(input, output, session) {
+    
+    data.elan.map <- jsonlite::read_json("data/elan.json")
+    data.elan <- as.data.frame(load_data("data/elan_classification"))
+    
+    output$map <- renderEcharts4r({
+      data.elan |>
+        e_charts(name) |>
+        e_map_register("ELAN", data.elan.map) |>
+        elan_map(category, map = "ELAN")
+    })
   })
 }

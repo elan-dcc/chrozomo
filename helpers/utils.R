@@ -39,6 +39,13 @@ hearttile <- function(content, ...){
   div(class = "hearttile", content, ...)
 }
 
+arrow <- function(){
+  div(id = "arrowcontainer",
+      div(class = "arrow"), 
+      div(class = "arrow")
+  )
+}
+
 explanation <- function(content, ...){
   p(class = "explanation", content, ...)
 }
@@ -116,7 +123,8 @@ header <- function() {
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "css/style.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "css/pt-sans.css"),
-    tags$link(rel = "shortcut icon", href = "images/favicon_elan.svg")
+    tags$link(rel = "shortcut icon", href = "images/favicon_elan.svg"),
+    tags$script(src = "scripts/down_clown.js")
   )
 }
 
