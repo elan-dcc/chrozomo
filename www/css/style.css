@@ -401,7 +401,7 @@ a:hover{
   bottom: 20px;
   right: 10px;
   z-index: 1000;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .fade-hint {

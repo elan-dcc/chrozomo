@@ -3,12 +3,10 @@ $(document).ready(function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
         
-        if ((scrollHeight - scrollPosition) / scrollHeight < 0.1) {
+        if ((scrollHeight - scrollPosition) < 150) {
             $("#arrowcontainer").addClass('fade-hint');
-            // Shiny.setInputValue("scrolledToBottom", true, {priority: "event"});
         } else {
             $("#arrowcontainer").removeClass('fade-hint');
-            // Shiny.setInputValue("scrolledToBottom", false, {priority: "event"});
         }
     }
 
