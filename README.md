@@ -6,7 +6,7 @@ The **Chronische Zorg Monitor** (ChroZoMo) is a shiny dashboard developed by [EL
 Clone the repository and run app.R. Do make sure you have installed all the required packages. These packages can be found at the top of app.R
 
 ## Directory structure
-The **Chrozomo** project is organized into the following directories:
+The **ChroZoMo** project is organized into the following directories:
 ```
 Chrozomo
 ├───bin #code to convert CBS maps to json
