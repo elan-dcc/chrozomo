@@ -6,6 +6,7 @@
 # install.packages("shinydashboard")
 # install.packages("echarts4r")
 # install.packages("sf")
+# install.packages("data.table")
 
 library(shinydashboard)
 library(echarts4r) # charts
