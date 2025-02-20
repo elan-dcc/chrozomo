@@ -35,7 +35,7 @@ hf_sterf_server <- function(id) {
         ) |>
         e_y_axis(name = "Percentage"
         ) |>
-        e_legend(show = TRUE) |>
+        e_legend(show = TRUE, right = 30) |>
         e_hide_grid_lines(which = c("x", "y")) |>
         e_toolbox_feature(
           feature = "saveAsImage",

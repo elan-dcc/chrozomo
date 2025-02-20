@@ -67,7 +67,7 @@ hf_acp_server <- function(id) {
         ) |>
         e_y_axis(name = "Percentage\n personen",
         ) |>
-        e_legend(show = TRUE) |>
+        e_legend(show = TRUE, right = 30) |>
         e_hide_grid_lines(which = c("y")) |>
         e_toolbox_feature(
           feature = "saveAsImage",

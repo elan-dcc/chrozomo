@@ -92,14 +92,13 @@ hf_dm_server <- function(id) {
         e_bar(regionaal_ziekenhuiscijfer, name = "Regionaal ziekenhuiscijfer") |>
         e_bar(regionaal_huisartsencijfer, name = "Regionaal huisartsencijfer") |>
         e_title("Leeftijdsverdeling verschillende populaties", show = FALSE) |>
-        # e_add_nested("itemStyle", color) |>
         e_labels(position = "top") |>
         e_tooltip(trigger = "axis") |>
         e_x_axis(name = ""
         ) |>
         e_y_axis(name = "Percentage",
         ) |>
-        e_legend(show = TRUE, top = 30) |>
+        e_legend(show = TRUE, right = 30) |>
         e_hide_grid_lines(which = c("x", "y")) |>
         e_toolbox_feature(
           feature = "saveAsImage",
@@ -113,7 +112,6 @@ hf_dm_server <- function(id) {
         e_charts(ethniciteit) |>
         e_bar(regionaal_ziekenhuiscijfer, name = "Regionaal ziekenhuiscijfer") |>
         e_bar(regionaal_huisartsencijfer, name = "Regionaal huisartsencijfer") |>
-        # e_add_nested("itemStyle", color) |>
         e_title("Verschil aanwezigheid ethniciteiten (%) t.ov. landelijke ziekenhuiscijfers", show = FALSE) |>
         e_labels(position = "top") |>
         e_tooltip(trigger = "axis") |>
@@ -121,7 +119,7 @@ hf_dm_server <- function(id) {
         ) |>
         e_y_axis(name = "Percentage",
         ) |>
-        e_legend(show = TRUE, top = 30) |>
+        e_legend(show = TRUE, right = 30) |>
         e_hide_grid_lines(which = c("x", "y")) |>
         e_toolbox_feature(
           feature = "saveAsImage",

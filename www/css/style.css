@@ -1,5 +1,5 @@
 
-:root{
+:root {
   --myfont: "PT Sans", sans-serif;
   --primary-color: #786ebd;
   --secondary-color: #2b2552;
@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-html, body{
+html, body {
   font-family: var(--myfont) !important;
   background-color: var(--background-color) !important;
   overscroll-behavior: none;
@@ -24,7 +24,18 @@ nav {
   background: var(--primary-color) !important;
 }
 
-.nav>li>a{
+.nav {
+  padding-left: 1px;
+}
+
+.navbar-header {
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.nav>li>a {
   color: white !important;
 }
 
@@ -32,24 +43,24 @@ nav {
   color: var(--primary-color) !important;
 }
 
-.navbar-default .dropdown-menu{
+.navbar-default .dropdown-menu {
   color: white !important;
   background-color: var(--primary-color) !important;
 }
 
-.navbar{
+.navbar {
   margin: 0;
 }
 
-.navbar-nav>.open>a{
+.navbar-nav>.open>a {
   background-color: var(--tertiary-color) !important;
 }
 
-.navbar-nav>.active>a{
+.navbar-nav>.active>a {
   background-color: var(--secondary-color) !important;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   border: 0;
 }
 
@@ -58,15 +69,15 @@ nav {
   transition: all .15s ease-out;
 }
 
-.dropdown-menu>li>a:hover{
+.dropdown-menu>li>a:hover {
   color: var(--tertiary-color) !important;
   background-color: inherit !important;
 }
 
-.dropdown-menu>.active>a{
+.dropdown-menu>.active>a {
   background-color: var(--primary-color) !important;
 }
-.dropdown-menu>.active>a:hover{
+.dropdown-menu>.active>a:hover {
   background-color: var(--secondary-color) !important;
 }
 
@@ -80,31 +91,31 @@ nav {
   background: var(--primary-color) !important;
 }
 
-.container-fluid{
+.container-fluid {
   padding: 0;
   /* overflow-x: hidden;
   overflow-y: visible; */
 }
 
-.main{
+.main {
   background-color: var(--main-color) !important;
   overflow-y: auto; 
   overflow-x: hidden;
 }
 
-.main > div{
+.main > div {
   padding: 0 10px 0 10px;
 }
 /* content */
-.content-wrapper, .wrapper{
+.content-wrapper, .wrapper {
   background: var(--tertiary-color) !important;
 }
 
-.highcharts-container{
+.highcharts-container {
   background-color: white !important;
 }
 
-.container{
+.container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between !important;
@@ -113,13 +124,13 @@ nav {
   padding: 0;
 }
 
-.container > div{
+.container > div {
   flex: 100%;
 }
 
 /* unfortunately, shiny just adds these: */
 .container::after, .container::before, 
-.container-fluid::before{
+.container-fluid::before {
   display: none !important;
 }
 
@@ -139,29 +150,28 @@ footer > div.container > div.tile {
   color: #FFFFFF;
 }
 
-footer > div.container > div.tile > a > img{
+footer > div.container > div.tile > a > img {
   width: 50px;
   margin: 5px;
 }
 
 .hearttile {
-  width: 100%;
   mask: url(../../images/heart.svg);
-  mask-size: auto 45%;
+  mask-size: auto 20vw;
   mask-position: center;
   mask-repeat: no-repeat;
 }
 
-.menutile{
+.menutile {
   text-align: center;
   padding: 20px 0 20px 0 !important;
 }
 
-.menutile > .shiny-input-container{
+.menutile > .shiny-input-container {
   margin: 0 auto;
 }
 
-.solotile{
+.solotile {
   padding: 40px;
   background-color: white !important;
   min-height: 300px;
@@ -170,18 +180,18 @@ footer > div.container > div.tile > a > img{
   overflow: auto;
 }
 
-.explanation{
+.explanation {
   text-align: center;
   margin-top: 20px;
 }
 
 ul.nav-tabs > li > a, 
-ul.nav-tabs > li > a:active{
+ul.nav-tabs > li > a:active {
   background-color: var(--primary-color);
   color: #FFF !important;
 }
 
-ul.nav-tabs > li > a:hover{
+ul.nav-tabs > li > a:hover {
   background-color: var(--tertiary-color);
   color: #FFF !important;
 }
@@ -189,28 +199,19 @@ ul.nav-tabs > li > a:hover{
 
 ul.nav-tabs > li.active > a,
 ul.nav-tabs > li.active > a:focus,
-ul.nav-tabs > li.active > a:hover{
+ul.nav-tabs > li.active > a:hover {
   background-color: var(--secondary-color);
   color: #FFF !important;
 }
 
-ul.nav-tabs > li.active > a:focus{
+ul.nav-tabs > li.active > a:focus {
   background-color: var(--secondary-color);
   color: #FFF !important;
 }
 
 ul.nav-tabs > li.active > a, ul.nav-tabs > li.active > a, 
-ul.nav-tabs > li.active > a:focus, ul.nav-tabs > li.active > a:hover
-{
+ul.nav-tabs > li.active > a:focus, ul.nav-tabs > li.active > a:hover {
   border: 0;
-}
-
-
-@media (min-width: 800px) {
-  .container > div{
-    flex: 50%;
-    max-width: 49%;
-  }
 }
 
 .section {
@@ -219,7 +220,7 @@ ul.nav-tabs > li.active > a:focus, ul.nav-tabs > li.active > a:hover
   padding: 20px 40px 20px 40px !important;
 }
 
-.section > *{
+.section > * {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -232,31 +233,24 @@ ul.nav-tabs > li.active > a:focus, ul.nav-tabs > li.active > a:hover
   background-color: var(--main-secondary-color);
 }
 
-@media (max-width: 768px) {
-  nav.navbar > div.container-fluid{
-    overflow-x: hidden;
-    overflow-y: inherit;
-  }
-}
-
 /* footer */
 
-footer{
+footer {
   text-align: center;
 }
 
 
-footer > div.container > div.footer-information > a{
+footer > div.container > div.footer-information > a {
   color: white !important;
 }
 
 
-footer > div.container > div.footer-logos > a{
+footer > div.container > div.footer-logos > a {
   color: transparent !important;
 }
 
 
-#footertop{
+#footertop {
   width: 100%;
   background: var(--main-color) !important;
 }
@@ -305,7 +299,7 @@ div.splash, div.splash_info {
 
 div.splash > h1 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 800;
   color: var(--secondary-color);
   letter-spacing: inherit;
@@ -320,7 +314,7 @@ h1 {
   margin-bottom: 20px !important;
 }
 
-div.region{
+div.region {
   color: var(--primary-color) !important;
   letter-spacing: 2px;
   font-weight: 500px;
@@ -331,25 +325,25 @@ div.region{
 
 div.splash > h2 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--secondary-color);
   letter-spacing: inherit;
 }
 
-div.splash_info > .container{
+div.splash_info > .container {
   background-color: var(--secondary-color);
   color: #FFF;
   border-radius: 20px;
   vertical-align: middle;
 }
 
-div.splash_info > .container > .tile > p{
+div.splash_info > .container > .tile > p {
   letter-spacing: .5px;
   line-height: 1.5;
 }
 
-div.splash_info > .container > .tile{
+div.splash_info > .container > .tile {
   background-color: transparent !important;
   vertical-align: middle;
   padding: 0 50px 0 50px !important;
@@ -357,13 +351,13 @@ div.splash_info > .container > .tile{
 
 div.splash_info > .container > .tile > h2 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 15px;
   font-weight: 600;
 }
 
 div.splash_info > .container > .tile > a,
 div.splash > a {
-  width: 200px;
+  max-width: 200px;
   padding: 5px 0;
   margin: 20px auto 20px auto;
   text-align: center;
@@ -387,16 +381,16 @@ div.splash > a:hover {
   background-color: var(--primary-color);
 }
 
-a{
+a {
   color: var(--tertiary-color);
 }
 
-a:hover{
+a:hover {
   color: var(--primary-color);
 }
 
 /* arrows (scrolling) */
-#arrowcontainer{
+#arrowcontainer {
   position: fixed;
   bottom: 20px;
   right: 10px;
@@ -408,35 +402,70 @@ a:hover{
   opacity: 0;
 }
 
-.arrow{
+.arrow {
   width: 1em;
   height: 1em;
   background-color: transparent;
   border-width: 0 0.25em 0.25em 0;
   border-style: solid;
-  border-color: #FFF;
-  animation: scrolldown 1.2s ease-in-out infinite 0.15s;
+  border-color: var(--primary-color);
+  animation: scrolldown 2.2s ease-in-out infinite 0.15s;
   transform: translateY(0%) rotate(45deg);
   opacity: 0;
 }
 
-.arrow:nth-child(2){
+.arrow:nth-child(2) {
   position: absolute;
   bottom: 10px;
 }
 
 
 @keyframes scrolldown {
-  0%{
+  0% {
     transform: translateY(20%) rotate(45deg);
     opacity: 0.7;
   }
-  50%{
+  50% {
     transform: translateY(0%) rotate(45deg);
     opacity: 0.2;
   }
-  100%{
+  100% {
     transform: translateY(20%) rotate(45deg);
     opacity: 0.7;
+  }
+}
+
+
+@media (max-width: 768px) {
+  nav.navbar > div.container-fluid {
+    overflow-x: hidden;
+    overflow-y: inherit;
+  }
+}
+
+
+@media (min-width: 400px) {
+  div.splash > h1 {
+    font-size: 40px;
+  }
+
+  div.splash > h2 {
+    font-size: 30px;
+  }
+  
+
+  div.splash_info > .container > .tile > h2 {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 800px) {
+  .container > div{
+    flex: 50%;
+    max-width: 49%;
+  }
+
+  .hearttile {
+    mask-size: auto 40%;
   }
 }
