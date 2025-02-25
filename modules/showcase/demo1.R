@@ -115,15 +115,15 @@ demo1_server <- function(id) {
         }
         
         #subset
-        data_storage <- data.demo1[condition]
+        data <- data.demo1[condition]
         
       }
       else {
         level <- 1
-        data_storage <- data.demo1
+        data <- data.demo1
       }
 
-      data <- data_storage[, .(waarde = sum(waarde)), by = eval(names(data_storage)[level])]
+      data <- data[, .(waarde = sum(waarde)), by = eval(names(data)[level])]
       setnames(data, names(data.demo1)[level], "level")
  
       # assigning colours      
