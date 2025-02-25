@@ -19,15 +19,12 @@ demo1_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     
     data.demo1 <- load_data("data/demo1") 
+    history <- list()
     
-    data.demo1.max_level <- names(data.demo1)[grepl( "level" , names(data.demo1))]
-    data.demo1.max_level <- max(as.numeric(gsub('level', '', data.demo1.max_level)))
+    data.demo1.max_level <- ncol(data.demo1) - 1
 
     plot_data <- function(
-    chart_data, chart_title, chart_level) {
-      
-      int_chart_level <- as.numeric(gsub('level', '', chart_level))
-
+    chart_data, chart_title, chart_level, chart_value) {
       chart <- chart_data |>
         e_charts(level) |>
         e_bar(waarde) |>
@@ -52,7 +49,7 @@ demo1_server <- function(id) {
         e_add_nested("itemStyle", color)
       
       # offer option to go one level up
-      if (int_chart_level >= 2){
+      if (chart_level >= 2){
         chart <- chart |>
           e_title("Terug", triggerEvent = TRUE) |>
           e_on(
@@ -62,7 +59,8 @@ demo1_server <- function(id) {
               "function(params){
               Shiny.setInputValue(
                 '", id, "-input_level',
-                'level", as.character(int_chart_level - 1) ,"',
+                {level: ", chart_level - 1 ,",
+                value: params.name},
                 {priority: 'event'}
                  );
                }"
@@ -71,16 +69,17 @@ demo1_server <- function(id) {
           )
       }
       # dive deeper into bar chart
-      if (int_chart_level < data.demo1.max_level) {
+      if (chart_level < data.demo1.max_level) {
         chart <- chart |>
           e_on(
             query = "series.bar",
             handler =
               paste0(
                 "function(params){
-              Shiny.setInputValue(
+                Shiny.setInputValue(
                 '", id, "-input_level',
-                'level", as.character(int_chart_level + 1), "',
+                {level: ", chart_level + 1, ",
+                value: params.name },
                 {priority: 'event'}
                  );
                }"
@@ -88,30 +87,54 @@ demo1_server <- function(id) {
             event = "click"
           )
       }
-      
       return(chart)
     }
   
     output$demo1 <- renderEcharts4r({
       if ( !is.null(input$input_level) ){
-        level <- input$input_level
+
+        level <- input$input_level$level
+        
+        # adapt history
+        if (level > length(history)) { # we're going deeper
+          value <- input$input_level$value
+          history <<- append(history, list(list(level = level - 1, value = value)))
+        }
+        else { # we're going up!
+          history[[level]] <<- NULL
+        }
+        
+        condition <- TRUE # to start without filtering
+        # make the conditional statement
+        for (entry in history) {
+          # Get the column name for the given level
+          column_name <- names(data.demo1)[entry$level]
+          
+          # Update the condition by checking the value in the column
+          condition <- condition & (data.demo1[[column_name]] == entry$value)
+        }
+        
+        #subset
+        data_storage <- data.demo1[condition]
+        
       }
       else {
-        level <- "level1"
+        level <- 1
+        data_storage <- data.demo1
       }
-      
-      data <- data.demo1[, .(waarde = sum(waarde)), by = level]
-      setnames(data, level, "level")
-      
+
+      data <- data_storage[, .(waarde = sum(waarde)), by = eval(names(data_storage)[level])]
+      setnames(data, names(data.demo1)[level], "level")
+ 
       # assigning colours      
       switch(level, 
-             level2 = {
+             `2` = {
                data$color <- color_category["geslacht"]
              },
-             level1 = {
+            `1` = {
                data$color <- color_regions[1:2]  
              },
-             level3 = {
+             `3` = {
                data$color <- c("#e72a8a", "#7570b3")
              },
              {
@@ -121,9 +144,9 @@ demo1_server <- function(id) {
       
       # titles
       title <- list(
-        level1 = "Regio", 
-        level2 = "Geslacht",
-        level3 = "Leeftijd"
+        `1` = "Regio", 
+        `2` = "Geslacht",
+        `3` = "Leeftijd"
         )
       
       plot_data(
