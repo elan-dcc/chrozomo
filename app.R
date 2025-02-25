@@ -1,8 +1,3 @@
-#' Chrozomo
-#' Date: 28-01-2025
-#' @author Lisette de Schipper
-#' Description: Chronische Zorg Monitor
-
 # install.packages("shinydashboard")
 # install.packages("echarts4r")
 # install.packages("sf")
