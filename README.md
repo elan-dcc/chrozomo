@@ -1,5 +1,8 @@
 # ChroZoMo - Chronische Zorg Monitor
 
+Link to the current dashboard:
+https://elandcc.shinyapps.io/chrozomo/
+
 The **Chronische Zorg Monitor** (ChroZoMo) is a shiny dashboard developed by [ELAN](https://elan.healthcampusdenhaag.nl) to provide insights into chronic care data.
 
 ## Getting started
